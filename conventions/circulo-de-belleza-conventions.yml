@@ -1,0 +1,48 @@
+generated: '2026-07-18'
+method: searched
+source: https://www.circulodebelleza.com/llms.txt
+scope: >-
+  Cross-cutting conventions for agent interaction with this Shopify storefront
+  over the Universal Commerce Protocol (UCP). Derived from the store's published
+  /llms.txt, /agents.md, /robots.txt, and /.well-known/ucp — no OpenAPI is
+  published, so these are the documented agent-facing semantics only.
+authentication:
+  style: OIDC (Shopify Customer Accounts) for buyer sign-in; per-checkout buyer approval for payment
+  ref: authentication/circulo-de-belleza-authentication.yml
+versioning:
+  style: protocol-version negotiation via UCP merchant profile
+  current: '2026-04-08'
+  supported: ['2026-04-08', '2026-01-23']
+  discovery: https://www.circulodebelleza.com/.well-known/ucp
+rate_limiting:
+  documented: true
+  signal: per-IP rate limiting on the UCP/MCP endpoint; back off on HTTP 429
+buyer_context:
+  documented: true
+  params: [context.address_country, context.currency]
+  note: pass for accurate pricing and availability
+buyer_approval:
+  documented: true
+  invariant: >-
+    Checkout requires explicit, contemporaneous human/buyer approval. Agents must
+    not complete payment, order placement, or scripted end-to-end checkout without
+    it; use the UCP/MCP endpoint or the Shop skill (https://shop.app/SKILL.md),
+    both of which enforce buyer approval before payment.
+read_only_browsing:
+  auth_required: false
+  endpoints:
+  - GET /collections/all
+  - GET /products/{handle}
+  - GET /products/{handle}.json
+  - GET /collections/{handle}
+  - GET /collections/{handle}/products.json
+  - GET /search?q={query}&type=product
+  - GET /sitemap.xml
+idempotency:
+  documented: false
+  note: no idempotency-key contract is published for this storefront
+cross_links:
+  authentication: authentication/circulo-de-belleza-authentication.yml
+  scopes: scopes/circulo-de-belleza-scopes.yml
+  mcp: mcp/circulo-de-belleza-mcp.yml
+  well_known: well-known/circulo-de-belleza-well-known.yml

@@ -1,8 +1,27 @@
 aid: circulo-de-belleza
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/circulo-de-belleza.png
 name: Circulo de Belleza
-description: Circulo de Belleza is a company surfaced as a portfolio company of 500-global and added to
-  the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment
-  pipeline.
+description: >-
+  Círculo de Belleza is an authorized distributor of professional beauty products in Mexico, operating
+  an e-commerce storefront at circulodebelleza.com. It sells salon-quality hair care, hair color, nail,
+  barbershop, and facial/spa supplies from 40+ professional brands (L'Oréal Professionnel, Olaplex, Wella,
+  Schwarzkopf, Matrix, Alfaparf Milano) at professional pricing with no minimum purchase, same-day
+  fulfillment, and nationwide Mexico delivery. The store is built on Shopify and exposes a native
+  agent-commerce surface: a published llms.txt/agents.md, OpenID Connect and OAuth authorization-server
+  discovery documents, and a Universal Commerce Protocol (UCP) MCP endpoint for agent-driven catalog
+  search, cart, and buyer-approved checkout.
 url: https://raw.githubusercontent.com/api-evangelist/circulo-de-belleza/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -12,9 +31,18 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
 tags:
 - Company
+- Beauty
+- Cosmetics
+- E-Commerce
+- Retail
+- Mexico
+- Hair Care
+- Professional Beauty Products
+- Shopify
+- Agent Commerce
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -24,3 +52,27 @@ maintainers:
 common:
 - type: Website
   url: https://circulodebelleza.com
+- type: MCPServer
+  name: Círculo de Belleza UCP/MCP endpoint
+  url: mcp/circulo-de-belleza-mcp.yml
+- type: LLMsTxt
+  url: llms/circulo-de-belleza-llms.txt
+- type: WellKnown
+  url: well-known/circulo-de-belleza-well-known.yml
+- type: Authentication
+  url: authentication/circulo-de-belleza-authentication.yml
+- type: OAuthScopes
+  url: scopes/circulo-de-belleza-scopes.yml
+- type: Conventions
+  url: conventions/circulo-de-belleza-conventions.yml
+- type: DomainSecurity
+  url: security/circulo-de-belleza-domain-security.yml
+- type: PrivacyPolicy
+  url: https://www.circulodebelleza.com/policies/privacy-policy
+- type: TermsOfService
+  url: https://www.circulodebelleza.com/policies/terms-of-service
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

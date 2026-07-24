@@ -1,0 +1,27 @@
+generated: '2026-07-18'
+method: searched
+source: https://www.circulodebelleza.com/.well-known/
+host: https://www.circulodebelleza.com
+notes: >-
+  Shopify-hosted storefront (underlying shop distribell.myshopify.com, shop_id
+  25099010151). OIDC/OAuth discovery documents are Shopify Customer Accounts;
+  the UCP profile is the store's Universal Commerce Protocol merchant profile.
+documents:
+- path: /.well-known/openid-configuration
+  status: 200
+  file: circulo-de-belleza-openid-configuration.json
+  spec: OpenID Connect Discovery 1.0
+- path: /.well-known/oauth-authorization-server
+  status: 200
+  file: circulo-de-belleza-oauth-authorization-server.json
+  spec: RFC 8414
+- path: /.well-known/ucp
+  status: 200
+  file: circulo-de-belleza-ucp.json
+  spec: Universal Commerce Protocol merchant profile (https://ucp.dev)
+- path: /.well-known/security.txt
+  status: 404
+- path: /.well-known/api-catalog
+  status: 404
+- path: /.well-known/ai-plugin.json
+  status: 404
